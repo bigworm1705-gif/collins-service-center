@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collins Service Center LLC | Professional Services</title>
+
+  <!-- CSS -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f8fafc;
+      color: #1f2937;
+    }
+
+    header {
+      min-height: 220px;
+      background-image: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)), url("./526852634_704916152534482_7438952353672566046_n.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    nav {
+      background-color: #0f172a;
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+
+    .lightbox:active {
+      display: none;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .service {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .service h3 {
+      color: #2563eb;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #1e40af;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0f172a;
+      color: #e5e7eb;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }</style>
+</head>
+<body>
+
+  
+
+  <header>
+    <h1>Collins Service Center LLC</h1>
+    <p>Auto Repair & Collision Services</p>
+    <button onclick="scrollToContact()">Schedule an Appointment</button>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#photos">Photos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="home" class="card">
+      <h2>Welcome</h2>
+      <p>Collins Service Center LLC provides reliable, professional services designed to keep your vehicle or equipment running safely and efficiently.</p>
+    </section>
+
+    <section id="services" class="card">
+      <h2>Our Services</h2>
+      <div class="services">
+        <div class="service">
+          <h3>General Auto Repair</h3>
+          <p>Complete diagnostics and repairs to keep your vehicle running safely and smoothly, including collision and autobody services.</p>
+        </div>
+        <div class="service">
+          <h3>Maintenance Services</h3>
+          <p>Oil changes, brakes, tires, and routine maintenance to prevent costly repairs.</p>
+        </div>
+        <div class="service">
+          <h3>24/7 Towing Available</h3>
+          <p>Emergency towing services available 24 hours a day, 7 days a week when you need help fast.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="card">
+      <h2>About Us</h2>
+      <p>Collins Service Center LLC is a locally trusted auto service center committed to honest work, fair pricing, and quality repairs. Our experienced technicians take pride in keeping our community safely on the road.</p>
+    </section>
+
+    <section id="photos" class="card">
+      <h2>Our Shop & Work</h2>
+      <p>Take a look at our service center, equipment, and the quality work we provide every day.</p>
+      <div class="photo-grid">
+        <img src="4.jpg" alt="Collins Service Center services sign" onclick="openLightbox(this.src)" />
+        <img src="1.jpg" alt="Vehicle on lift inside shop" onclick="openLightbox(this.src)" />
+        <img src="2.jpg" alt="Collins Service Center trucks and shop" onclick="openLightbox(this.src)" />
+        <img src="3.jpg" alt="Towing truck in winter conditions" onclick="openLightbox(this.src)" />
+      </div>
+
+      <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Enlarged photo" />
+      </div>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact Us</h2>
+      <p><strong>Address:</strong> 7425 Barbour County Highway, Belington, WV, United States, 26250</p>
+      <p><strong>Email:</strong> collinsservicecenter2025@gmail.com</p>
+      <p><strong>Phone:</strong> (304) 952-4226</p>
+      <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61579108166010" target="_blank">Visit us on Facebook</a></p>
+      <p>Need service you can trust? Contact us today to schedule your appointment.</p>
+      <button onclick="showMessage()">Contact Now</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Collins Service Center LLC. All rights reserved.</p>
+    <p>Auto Repair & Maintenance Services</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showMessage() {
+      alert("Thanks for your interest! We will get back to you shortly.");
+    }
+
+    function scrollToContact() {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+      function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
